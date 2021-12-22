@@ -181,10 +181,27 @@ public class webSRV implements Runnable{
 	
 	// return supported MIME Types
 	private String getContentType(String fileRequested) {
-		if (fileRequested.endsWith(".htm")  ||  fileRequested.endsWith(".html"))
+		if (fileRequested.endsWith(".htm")  ||  fileRequested.endsWith(".html")){
 			return "text/html";
-		else
+		}
+		else if(fileRequested.endsWith(".css")){
+			return "text/css";
+		}
+		else if(fileRequested.endsWith(".js")){
+			return "application/javascript";
+		}
+		else if(fileRequested.endsWith(".jpg") || fileRequested.endsWith(".jpeg")){
+			return "image/jpeg";
+		}
+		else if(fileRequested.endsWith(".png")){
+			return "image/png";
+		}
+		else if(fileRequested.endsWith(".gif")){
+			return "image/gif";
+		}
+		else{
 			return "text/plain";
+		}
 	}
 	
 	private void fileNotFound(PrintWriter out, OutputStream dataOut, String fileRequested) throws IOException {
